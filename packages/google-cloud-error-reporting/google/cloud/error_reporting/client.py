@@ -24,14 +24,16 @@ except ImportError:  # pragma: NO COVER
 
     _HAVE_GRPC = False
 else:
-    from google.api_core.gapic_v1 import client_info
+    from google.api_core.gapic_v1 import client_info  # type: ignore[no-redef]
 
     _HAVE_GRPC = True
 
 from google.cloud.client import ClientWithProject
-from google.cloud.error_reporting import __version__
+from google.cloud.error_reporting import gapic_version
 from google.cloud.error_reporting._logging import _ErrorReportingLoggingAPI
 from google.cloud.environment_vars import DISABLE_GRPC
+
+__version__ = gapic_version.__version__
 
 _DISABLE_GRPC = os.getenv(DISABLE_GRPC, False)
 _USE_GRPC = _HAVE_GRPC and not _DISABLE_GRPC
