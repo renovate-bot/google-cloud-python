@@ -504,7 +504,7 @@ def core_deps_from_source(session, protobuf_implementation):
 
     session.install(*constraints_deps)
 
-    core_dependencies_from_source = [        
+    core_dependencies_from_source = [
         "googleapis-common-protos @ git+https://github.com/googleapis/google-cloud-python#egg=googleapis-common-protos&subdirectory=packages/googleapis-common-protos",
         "google-api-core @ git+https://github.com/googleapis/google-cloud-python#egg=google-api-core&subdirectory=packages/google-api-core",
         "google-auth @ git+https://github.com/googleapis/google-auth-library-python.git",
