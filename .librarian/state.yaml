@@ -1591,8 +1591,7 @@ libraries:
       - ^packages/google-cloud-error-reporting/samples/generated_samples
       - ^packages/google-cloud-error-reporting/scripts/fixup_
       - ^packages/google-cloud-error-reporting/setup.py
-      - ^packages/google-cloud-error-reporting/testing/constraints-3.9
-      - ^packages/google-cloud-error-reporting/testing/constraints-3.1
+      - ^packages/google-cloud-error-reporting/testing
     tag_format: '{id}-v{version}'
   - id: google-cloud-essential-contacts
     version: 1.12.0
