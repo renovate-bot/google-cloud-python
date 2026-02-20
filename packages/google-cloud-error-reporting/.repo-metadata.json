@@ -7,7 +7,7 @@
     "release_level": "preview",
     "language": "python",
     "library_type": "GAPIC_COMBO",
-    "repo": "googleapis/python-error-reporting",
+    "repo": "googleapis/google-cloud-python",
     "distribution_name": "google-cloud-error-reporting",
     "api_id": "clouderrorreporting.googleapis.com",
     "requires_billing": false,

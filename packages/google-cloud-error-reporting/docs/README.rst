@@ -48,14 +48,6 @@ dependencies.
 .. _`venv`: https://docs.python.org/3/library/venv.html
 
 
-Code samples and snippets
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Code samples and snippets live in the `samples/`_ folder.
-
-.. _samples/: https://github.com/googleapis/python-error-reporting/tree/main/samples
-
-
 Supported Python Versions
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 Our client libraries are compatible with all current `active`_ and `maintenance`_ versions of
