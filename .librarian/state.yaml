@@ -1577,19 +1577,14 @@ libraries:
       - ^packages/google-cloud-error-reporting/tests/unit/__init__.py
       - ^packages/google-cloud-error-reporting/.coveragerc
       - ^packages/google-cloud-error-reporting/.flake8
-      - ^packages/google-cloud-error-reporting/.pre-commit-config.yaml
       - ^packages/google-cloud-error-reporting/.repo-metadata.json
       - ^packages/google-cloud-error-reporting/.trampolinerc
       - ^packages/google-cloud-error-reporting/LICENSE
       - ^packages/google-cloud-error-reporting/MANIFEST.in
       - ^packages/google-cloud-error-reporting/README.rst
-      - ^packages/google-cloud-error-reporting/SECURITY.md
       - ^packages/google-cloud-error-reporting/mypy.ini
       - ^packages/google-cloud-error-reporting/noxfile.py
-      - ^packages/google-cloud-error-reporting/owlbot.py
-      - ^packages/google-cloud-error-reporting/renovate.json
       - ^packages/google-cloud-error-reporting/samples/generated_samples
-      - ^packages/google-cloud-error-reporting/scripts/fixup_
       - ^packages/google-cloud-error-reporting/setup.py
       - ^packages/google-cloud-error-reporting/testing
     tag_format: '{id}-v{version}'
