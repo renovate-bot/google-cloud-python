@@ -508,3 +508,8 @@ def prerelease_deps(session, protobuf_implementation):
                 "PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION": protobuf_implementation,
             },
         )
+
+@nox.session(python=DEFAULT_PYTHON_VERSION)
+def core_deps_from_source(session):
+    """Run the test suite installing dependencies from source."""
+    default(session, prerelease=True)
