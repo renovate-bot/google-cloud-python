@@ -50,7 +50,11 @@ class Test_LoggingAPI(unittest.TestCase):
         return api
 
     def test_ctor(self):
-        gapic_client = LoggingServiceV2Client()
+        # Create a dummy credentials object to help ensure unit test isolation
+        creds = mock.Mock(spec=google.auth.credentials.Credentials)
+
+        # Pass those credentials to the GAPIC client
+        gapic_client = LoggingServiceV2Client(credentials=creds)
         api = _gapic._LoggingAPI(gapic_client, mock.sentinel.client)
         assert api._gapic_api is gapic_client
         assert api._client is mock.sentinel.client
@@ -224,7 +228,11 @@ class Test_SinksAPI(unittest.TestCase):
         return api
 
     def test_ctor(self):
-        gapic_client = ConfigServiceV2Client()
+        # Create a dummy credentials object to help ensure unit test isolation
+        creds = mock.Mock(spec=google.auth.credentials.Credentials)
+
+        # Pass those credentials to the GAPIC client
+        gapic_client = ConfigServiceV2Client(credentials=creds)
         api = _gapic._SinksAPI(gapic_client, mock.sentinel.client)
         assert api._gapic_api is gapic_client
         assert api._client is mock.sentinel.client
@@ -436,7 +444,11 @@ class Test_MetricsAPI(unittest.TestCase):
         return api
 
     def test_ctor(self):
-        gapic_client = MetricsServiceV2Client()
+        # Create a dummy credentials object to help ensure unit test isolation
+        creds = mock.Mock(spec=google.auth.credentials.Credentials)
+
+        # Pass those credentials to the GAPIC client
+        gapic_client = MetricsServiceV2Client(credentials=creds)
         api = _gapic._MetricsAPI(gapic_client, mock.sentinel.client)
         assert api._gapic_api is gapic_client
         assert api._client is mock.sentinel.client
