@@ -105,9 +105,24 @@ class Config(object):
 
 
 def setUpModule():
-    Config.CLIENT = client.Client()
-    Config.HTTP_CLIENT = client.Client(_use_grpc=False)
+    # Use GOOGLE_CLOUD_PROJECT
+    project_id = os.environ.get("GOOGLE_CLOUD_PROJECT")
+    
+    # Check if we have credentials (either via file or environment)
+    # google.auth.default() will check GOOGLE_APPLICATION_CREDENTIALS
+    has_creds = os.environ.get("GOOGLE_APPLICATION_CREDENTIALS") is not None
 
+    # Guard: Skip the entire module if the environment is not ready
+    if not project_id or not has_creds:
+        raise unittest.SkipTest(
+            "System tests skipped: GOOGLE_CLOUD_PROJECT and "
+            "GOOGLE_APPLICATION_CREDENTIALS must be set."
+        )
+
+    # Explicitly pass the project to the client
+    # This prevents the client from attempting 'discovery' via the metadata server
+    Config.CLIENT = client.Client(project=project_id)
+    Config.HTTP_CLIENT = client.Client(_use_grpc=False, project=project_id)
 
 # Skip the test cases using bigquery, storage and pubsub clients for mTLS testing.
 # Bigquery and storage uses http which doesn't have mTLS support, pubsub doesn't
