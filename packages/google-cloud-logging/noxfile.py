@@ -37,7 +37,14 @@ ISORT_VERSION = "isort==5.11.0"
 LINT_PATHS = ["docs", "google", "tests", "noxfile.py", "setup.py"]
 
 DEFAULT_PYTHON_VERSION = "3.14"
-
+ALL_PYTHON: List[str] = [
+    "3.9",
+    "3.10",
+    "3.11",
+    "3.12",
+    "3.13",
+    "3.14",
+]
 UNIT_TEST_PYTHON_VERSIONS: List[str] = [
     "3.9",
     "3.10",
