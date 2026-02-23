@@ -41,13 +41,25 @@ system_test_script="${PROJECT_ROOT}/.kokoro/system-single.sh"
 # This is needed in order for `git diff` to succeed
 git config --global --add safe.directory $(realpath .)
 
+packages_with_system_tests=(
+  "google-cloud-bigquery-storage"
+  "google-cloud-dns"
+  "google-cloud-error-reporting"
+  "google-cloud-testutils"
+)
+
+# Join array elements with | for the pattern match
+packages_with_system_tests_pattern=$(printf "|*%s*" "${packages_with_system_tests[@]}")
+packages_with_system_tests_pattern="${packages_with_system_tests_pattern:1}" # Remove the leading pipe
+
+
 # Run system tests for each package with directory packages/*/tests/system
 for dir in `find 'packages' -type d -wholename 'packages/*/tests/system'`; do
   # Get the path to the package by removing the suffix /tests/system
   package=$(echo $dir | cut -f -2 -d '/')
 
   # Run system tests on every change to these libraries
-  if [[ $package = @(*google-cloud-bigquery-storage*|*google-cloud-dns*|*google-cloud-testutils*) ]]; then
+  if [[ $package == @($packages_with_system_tests_pattern) ]]; then
     files_to_check=${package}
   else
     files_to_check=${package}/CHANGELOG.md
