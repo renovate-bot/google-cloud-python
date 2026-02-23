@@ -579,3 +579,19 @@ def core_deps_from_source(session, protobuf_implementation):
             "PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION": protobuf_implementation,
         },
     )
+
+@nox.session(python=ALL_PYTHON)
+def mypy(session):
+    """Run the type checker."""
+    session.install(
+        # TODO(https://github.com/googleapis/gapic-generator-python/issues/2410): Use the latest version of mypy
+        "mypy<1.16.0",
+        "types-requests",
+        "types-protobuf",
+    )
+    session.install(".")
+    session.run(
+        "mypy",
+        "-p",
+        "google",
+    )
