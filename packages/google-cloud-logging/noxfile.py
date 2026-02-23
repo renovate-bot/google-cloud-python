@@ -38,6 +38,8 @@ LINT_PATHS = ["docs", "google", "tests", "noxfile.py", "setup.py"]
 
 DEFAULT_PYTHON_VERSION = "3.14"
 ALL_PYTHON: List[str] = [
+    "3.7",
+    "3.8",
     "3.9",
     "3.10",
     "3.11",
