@@ -24,7 +24,7 @@ code from `GitHub`_ and install from source.
 
 .. _pip: https://pip.pypa.io
 .. _GitHub:
-  https://github.com/googleapis/google-cloud-python/packages/google-auth-oauthlib
+  https://github.com/googleapis/google-cloud-python/tree/main/packages/google-auth-oauthlib
 
 Usage
 -----
@@ -38,7 +38,7 @@ google-auth-oauthlib is made available under the Apache License, Version 2.0.
 For more details, see `LICENSE`_
 
 .. _LICENSE:
-    https://github.com/googleapis/google-cloud-python/packages/google-auth-oauthlib/LICENSE
+    https://github.com/googleapis/google-cloud-python/tree/main/packages/google-auth-oauthlib/LICENSE
 
 Contributing
 ------------
