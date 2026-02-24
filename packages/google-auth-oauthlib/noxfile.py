@@ -496,3 +496,20 @@ def prerelease_deps(session, protobuf_implementation):
                 "PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION": protobuf_implementation,
             },
         )
+
+
+@nox.session(python=DEFAULT_PYTHON_VERSION)
+def mypy(session):
+    """Run the type checker."""
+    session.install(
+        # TODO(https://github.com/googleapis/gapic-generator-python/issues/2410): Use the latest version of mypy
+        "mypy<1.16.0",
+        "types-requests-oauthlib",
+        "types-click",
+    )
+    session.install(".")
+    session.run(
+        "mypy",
+        "-p",
+        "google_auth_oauthlib",
+    )
