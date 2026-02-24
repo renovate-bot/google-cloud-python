@@ -222,6 +222,15 @@ libraries:
     preserve_regex: []
     remove_regex: []
     tag_format: '{id}-v{version}'
+  - id: google-auth-oauthlib
+    version: 1.2.4
+    last_generated_commit: ""
+    apis: []
+    source_roots:
+      - packages/google-auth-oauthlib
+    preserve_regex: []
+    remove_regex: []
+    tag_format: '{id}-v{version}'
   - id: google-cloud-access-approval
     version: 1.18.0
     last_generated_commit: 3322511885371d2b2253f209ccc3aa60d4100cfd
