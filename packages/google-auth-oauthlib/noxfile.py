@@ -385,20 +385,8 @@ def docfx(session):
 
 
 @nox.session(python=DEFAULT_PYTHON_VERSION)
-@nox.parametrize(
-    "protobuf_implementation",
-    ["python", "upb", "cpp"],
-)
-def prerelease_deps(session, protobuf_implementation):
+def prerelease_deps(session):
     """Run all tests with prerelease versions of dependencies installed."""
-
-    if protobuf_implementation == "cpp" and session.python in (
-        "3.11",
-        "3.12",
-        "3.13",
-        "3.14",
-    ):
-        session.skip("cpp implementation is not supported in python 3.11+")
 
     # Install all dependencies
     session.install("-e", ".[all, tests, tracing]")
@@ -431,71 +419,71 @@ def prerelease_deps(session, protobuf_implementation):
     session.install(*constraints_deps)
 
     prerel_deps = [
-        "protobuf",
-        # dependency of grpc
-        "six",
-        "grpc-google-iam-v1",
-        "googleapis-common-protos",
-        "grpcio",
-        "grpcio-status",
-        "google-api-core",
         "google-auth",
-        "proto-plus",
-        "google-cloud-testutils",
-        # dependencies of google-cloud-testutils"
-        "click",
+        "requests-oauthlib",
     ]
 
     for dep in prerel_deps:
         session.install("--pre", "--no-deps", "--upgrade", dep)
 
-    # Remaining dependencies
-    other_deps = [
-        "requests",
-    ]
-    session.install(*other_deps)
-
     # Print out prerelease package versions
-    session.run(
-        "python", "-c", "import google.protobuf; print(google.protobuf.__version__)"
-    )
-    session.run("python", "-c", "import grpc; print(grpc.__version__)")
     session.run("python", "-c", "import google.auth; print(google.auth.__version__)")
 
     session.run(
         "py.test",
         "tests/unit",
-        env={
-            "PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION": protobuf_implementation,
-        },
     )
 
-    system_test_path = os.path.join("tests", "system.py")
-    system_test_folder_path = os.path.join("tests", "system")
 
-    # Only run system tests if found.
-    if os.path.exists(system_test_path):
-        session.run(
-            "py.test",
-            "--verbose",
-            f"--junitxml=system_{session.python}_sponge_log.xml",
-            system_test_path,
-            *session.posargs,
-            env={
-                "PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION": protobuf_implementation,
-            },
+@nox.session(python=DEFAULT_PYTHON_VERSION)
+def core_deps_from_source(session):
+    """Run all tests with core dependencies installed from source
+    rather than pulling the dependencies from PyPI.
+    """
+
+    # Install all dependencies
+    session.install("-e", ".[all, tests, tracing]")
+    unit_deps_all = UNIT_TEST_STANDARD_DEPENDENCIES + UNIT_TEST_EXTERNAL_DEPENDENCIES
+    session.install(*unit_deps_all)
+    system_deps_all = (
+        SYSTEM_TEST_STANDARD_DEPENDENCIES + SYSTEM_TEST_EXTERNAL_DEPENDENCIES
+    )
+    session.install(*system_deps_all)
+
+    # Because we test minimum dependency versions on the minimum Python
+    # version, the first version we test with in the unit tests sessions has a
+    # constraints file containing all dependencies and extras.
+    with open(
+        CURRENT_DIRECTORY
+        / "testing"
+        / f"constraints-{UNIT_TEST_PYTHON_VERSIONS[0]}.txt",
+        encoding="utf-8",
+    ) as constraints_file:
+        constraints_text = constraints_file.read()
+
+    # Ignore leading whitespace and comment lines.
+    constraints_deps = [
+        match.group(1)
+        for match in re.finditer(
+            r"^\s*(\S+)(?===\S+)", constraints_text, flags=re.MULTILINE
         )
-    if os.path.exists(system_test_folder_path):
-        session.run(
-            "py.test",
-            "--verbose",
-            f"--junitxml=system_{session.python}_sponge_log.xml",
-            system_test_folder_path,
-            *session.posargs,
-            env={
-                "PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION": protobuf_implementation,
-            },
-        )
+    ]
+
+    session.install(*constraints_deps)
+
+    core_dependencies_from_source = [
+        "google-auth @ git+https://github.com/googleapis/google-auth-library-python.git",
+        "requests-oauthlib @ git+https://github.com/requests/requests-oauthlib.git",
+    ]
+
+    for dep in core_dependencies_from_source:
+        session.install(dep, "--no-deps", "--ignore-installed")
+        print(f"Installed {dep}")
+
+    session.run(
+        "py.test",
+        "tests/unit",
+    )
 
 
 @nox.session(python=DEFAULT_PYTHON_VERSION)
