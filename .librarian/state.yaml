@@ -1941,6 +1941,48 @@ libraries:
     remove_regex:
       - packages/google-cloud-locationfinder/
     tag_format: '{id}-v{version}'
+  - id: google-cloud-logging
+    version: 3.13.0
+    last_generated_commit: 5400ccce473c439885bd6bf2924fd242271bfcab
+    apis:
+      - path: google/logging/v2
+        service_config: logging_v2.yaml
+    source_roots:
+      - packages/google-cloud-logging
+    preserve_regex:
+      - packages/google-cloud-logging/CHANGELOG.md
+      - docs/CHANGELOG.md
+    remove_regex:
+      - ^packages/google-cloud-logging/.coveragerc
+      - ^packages/google-cloud-logging/.flake8
+      - ^packages/google-cloud-logging/.repo-metadata.json
+      - ^packages/google-cloud-logging/LICENSE
+      - ^packages/google-cloud-logging/MANIFEST.in
+      - ^packages/google-cloud-logging/README.rst
+      - ^packages/google-cloud-logging/mypy.ini
+      - ^packages/google-cloud-logging/noxfile.py
+      - ^packages/google-cloud-logging/setup.py
+      - ^packages/google-cloud-logging/docs/conf.py
+      - ^packages/google-cloud-logging/docs/index.rst
+      - ^packages/google-cloud-logging/docs/summary_overview.md
+      - ^packages/google-cloud-logging/docs/README.rst
+      - ^packages/google-cloud-logging/docs/_static/custom.css
+      - ^packages/google-cloud-logging/docs/_templates
+      - ^packages/google-cloud-logging/google/cloud/logging_v2/__init__.py
+      - ^packages/google-cloud-logging/google/cloud/logging_v2/services
+      - ^packages/google-cloud-logging/google/cloud/logging_v2/types
+      - ^packages/google-cloud-logging/google/cloud/logging_v2/gapic_version.py
+      - ^packages/google-cloud-logging/google/cloud/logging_v2/gapic_metadata.json
+      - ^packages/google-cloud-logging/google/cloud/logging_v2/py.typed
+      - ^packages/google-cloud-logging/google/cloud/logging/__init__.py
+      - ^packages/google-cloud-logging/google/cloud/logging/gapic_version.py
+      - ^packages/google-cloud-logging/google/cloud/logging/py.typed
+      - ^packages/google-cloud-logging/samples/generated_samples
+      - ^packages/google-cloud-logging/testing
+      - ^packages/google-cloud-logging/tests/__init__.py
+      - ^packages/google-cloud-logging/tests/unit/__init__.py
+      - ^packages/google-cloud-logging/tests/unit/gapic
+    tag_format: '{id}-v{version}'
   - id: google-cloud-lustre
     version: 0.3.0
     last_generated_commit: 3322511885371d2b2253f209ccc3aa60d4100cfd
