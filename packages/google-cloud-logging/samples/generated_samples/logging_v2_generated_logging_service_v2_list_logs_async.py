@@ -35,10 +35,10 @@ from google.cloud import logging_v2
 
 
 async def sample_list_logs():
-    # Create a client
+    # Create a client.
     client = logging_v2.services.logging_service_v2.LoggingServiceV2AsyncClient()
 
-    # Initialize request argument(s)
+    # Initialize request argument(s).
     request = logging_v2.types.ListLogsRequest(
         parent="parent_value",
     )
@@ -49,5 +49,6 @@ async def sample_list_logs():
     # Handle the response
     async for response in page_result:
         print(response)
+
 
 # [END logging_v2_generated_LoggingServiceV2_ListLogs_async]

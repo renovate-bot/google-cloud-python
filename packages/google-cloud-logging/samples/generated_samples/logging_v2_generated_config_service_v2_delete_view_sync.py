@@ -35,10 +35,10 @@ from google.cloud import logging_v2
 
 
 def sample_delete_view():
-    # Create a client
+    # Create a client.
     client = logging_v2.services.config_service_v2.ConfigServiceV2Client()
 
-    # Initialize request argument(s)
+    # Initialize request argument(s).
     request = logging_v2.types.DeleteViewRequest(
         name="name_value",
     )

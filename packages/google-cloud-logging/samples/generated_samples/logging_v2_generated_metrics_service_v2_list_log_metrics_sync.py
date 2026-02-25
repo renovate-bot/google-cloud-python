@@ -35,10 +35,10 @@ from google.cloud import logging_v2
 
 
 def sample_list_log_metrics():
-    # Create a client
+    # Create a client.
     client = logging_v2.services.metrics_service_v2.MetricsServiceV2Client()
 
-    # Initialize request argument(s)
+    # Initialize request argument(s).
     request = logging_v2.types.ListLogMetricsRequest(
         parent="parent_value",
     )
@@ -49,5 +49,6 @@ def sample_list_log_metrics():
     # Handle the response
     for response in page_result:
         print(response)
+
 
 # [END logging_v2_generated_MetricsServiceV2_ListLogMetrics_sync]

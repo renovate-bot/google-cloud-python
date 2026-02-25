@@ -35,13 +35,14 @@ from google.cloud import logging_v2
 
 
 def sample_write_log_entries():
-    # Create a client
+    # Create a client.
     client = logging_v2.services.logging_service_v2.LoggingServiceV2Client()
 
     # Initialize request argument(s)
     entries = logging_v2.types.LogEntry()
     entries.log_name = "log_name_value"
 
+    # Initialize request argument(s).
     request = logging_v2.types.WriteLogEntriesRequest(
         entries=entries,
     )
@@ -51,5 +52,6 @@ def sample_write_log_entries():
 
     # Handle the response
     print(response)
+
 
 # [END logging_v2_generated_LoggingServiceV2_WriteLogEntries_sync]

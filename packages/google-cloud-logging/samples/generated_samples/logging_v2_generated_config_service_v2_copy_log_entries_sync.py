@@ -35,10 +35,10 @@ from google.cloud import logging_v2
 
 
 def sample_copy_log_entries():
-    # Create a client
+    # Create a client.
     client = logging_v2.services.config_service_v2.ConfigServiceV2Client()
 
-    # Initialize request argument(s)
+    # Initialize request argument(s).
     request = logging_v2.types.CopyLogEntriesRequest(
         name="name_value",
         destination="destination_value",
@@ -53,5 +53,6 @@ def sample_copy_log_entries():
 
     # Handle the response
     print(response)
+
 
 # [END logging_v2_generated_ConfigServiceV2_CopyLogEntries_sync]

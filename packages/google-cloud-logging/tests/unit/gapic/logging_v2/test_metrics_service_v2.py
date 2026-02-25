@@ -563,19 +563,6 @@ def test_metrics_service_v2_client_from_service_account_file(
         assert client.transport._host == ("logging.googleapis.com:443")
 
 
-def test_metrics_default_client_info_headers():
-    import re
-
-    # test that DEFAULT_CLIENT_INFO contains the expected gapic headers
-    gapic_header_regex = re.compile(
-        r"gapic\/[0-9]+\.[\w.-]+ gax\/[0-9]+\.[\w.-]+ gl-python\/[0-9]+\.[\w.-]+ grpc\/[0-9]+\.[\w.-]+"
-    )
-    detected_info = google.cloud.logging_v2.services.metrics_service_v2.transports.base.DEFAULT_CLIENT_INFO
-    assert detected_info is not None
-    detected_agent = " ".join(sorted(detected_info.to_user_agent().split(" ")))
-    assert gapic_header_regex.match(detected_agent)
-
-
 def test_metrics_service_v2_client_get_transport_class():
     transport = MetricsServiceV2Client.get_transport_class()
     available_transports = [
@@ -968,10 +955,9 @@ def test_metrics_service_v2_client_get_mtls_endpoint_and_cert_source(client_clas
                             client_cert_source=mock_client_cert_source,
                             api_endpoint=mock_api_endpoint,
                         )
-                        (
-                            api_endpoint,
-                            cert_source,
-                        ) = client_class.get_mtls_endpoint_and_cert_source(options)
+                        api_endpoint, cert_source = (
+                            client_class.get_mtls_endpoint_and_cert_source(options)
+                        )
                         assert api_endpoint == mock_api_endpoint
                         assert cert_source is expected_cert_source
 
@@ -1016,10 +1002,9 @@ def test_metrics_service_v2_client_get_mtls_endpoint_and_cert_source(client_clas
                             client_cert_source=mock_client_cert_source,
                             api_endpoint=mock_api_endpoint,
                         )
-                        (
-                            api_endpoint,
-                            cert_source,
-                        ) = client_class.get_mtls_endpoint_and_cert_source(options)
+                        api_endpoint, cert_source = (
+                            client_class.get_mtls_endpoint_and_cert_source(options)
+                        )
                         assert api_endpoint == mock_api_endpoint
                         assert cert_source is expected_cert_source
 
@@ -1055,10 +1040,9 @@ def test_metrics_service_v2_client_get_mtls_endpoint_and_cert_source(client_clas
                 "google.auth.transport.mtls.default_client_cert_source",
                 return_value=mock_client_cert_source,
             ):
-                (
-                    api_endpoint,
-                    cert_source,
-                ) = client_class.get_mtls_endpoint_and_cert_source()
+                api_endpoint, cert_source = (
+                    client_class.get_mtls_endpoint_and_cert_source()
+                )
                 assert api_endpoint == client_class.DEFAULT_MTLS_ENDPOINT
                 assert cert_source == mock_client_cert_source
 

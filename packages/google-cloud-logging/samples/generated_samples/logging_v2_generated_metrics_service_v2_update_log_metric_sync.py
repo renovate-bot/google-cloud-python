@@ -35,7 +35,7 @@ from google.cloud import logging_v2
 
 
 def sample_update_log_metric():
-    # Create a client
+    # Create a client.
     client = logging_v2.services.metrics_service_v2.MetricsServiceV2Client()
 
     # Initialize request argument(s)
@@ -43,6 +43,7 @@ def sample_update_log_metric():
     metric.name = "name_value"
     metric.filter = "filter_value"
 
+    # Initialize request argument(s).
     request = logging_v2.types.UpdateLogMetricRequest(
         metric_name="metric_name_value",
         metric=metric,
@@ -53,5 +54,6 @@ def sample_update_log_metric():
 
     # Handle the response
     print(response)
+
 
 # [END logging_v2_generated_MetricsServiceV2_UpdateLogMetric_sync]

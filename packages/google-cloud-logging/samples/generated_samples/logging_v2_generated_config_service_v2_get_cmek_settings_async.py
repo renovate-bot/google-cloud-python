@@ -35,10 +35,10 @@ from google.cloud import logging_v2
 
 
 async def sample_get_cmek_settings():
-    # Create a client
+    # Create a client.
     client = logging_v2.services.config_service_v2.ConfigServiceV2AsyncClient()
 
-    # Initialize request argument(s)
+    # Initialize request argument(s).
     request = logging_v2.types.GetCmekSettingsRequest(
         name="name_value",
     )
@@ -48,5 +48,6 @@ async def sample_get_cmek_settings():
 
     # Handle the response
     print(response)
+
 
 # [END logging_v2_generated_ConfigServiceV2_GetCmekSettings_async]

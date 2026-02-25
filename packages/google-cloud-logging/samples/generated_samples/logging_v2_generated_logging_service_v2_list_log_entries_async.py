@@ -35,12 +35,12 @@ from google.cloud import logging_v2
 
 
 async def sample_list_log_entries():
-    # Create a client
+    # Create a client.
     client = logging_v2.services.logging_service_v2.LoggingServiceV2AsyncClient()
 
-    # Initialize request argument(s)
+    # Initialize request argument(s).
     request = logging_v2.types.ListLogEntriesRequest(
-        resource_names=['resource_names_value1', 'resource_names_value2'],
+        resource_names=["resource_names_value1", "resource_names_value2"],
     )
 
     # Make the request
@@ -49,5 +49,6 @@ async def sample_list_log_entries():
     # Handle the response
     async for response in page_result:
         print(response)
+
 
 # [END logging_v2_generated_LoggingServiceV2_ListLogEntries_async]

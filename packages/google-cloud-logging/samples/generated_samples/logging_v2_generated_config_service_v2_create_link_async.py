@@ -35,10 +35,10 @@ from google.cloud import logging_v2
 
 
 async def sample_create_link():
-    # Create a client
+    # Create a client.
     client = logging_v2.services.config_service_v2.ConfigServiceV2AsyncClient()
 
-    # Initialize request argument(s)
+    # Initialize request argument(s).
     request = logging_v2.types.CreateLinkRequest(
         parent="parent_value",
         link_id="link_id_value",
@@ -53,5 +53,6 @@ async def sample_create_link():
 
     # Handle the response
     print(response)
+
 
 # [END logging_v2_generated_ConfigServiceV2_CreateLink_async]

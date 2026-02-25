@@ -2,14 +2,15 @@
 # are correct in setup.py
 # List all library dependencies and extras in this file.
 # Pin the version to the lower bound.
-# e.g., if setup.py has "google-cloud-foo >= 1.14.0, < 2.0.0dev",
+# e.g., if setup.py has "google-cloud-foo >= 1.14.0, < 2.0.0",
 # Then this file should have google-cloud-foo==1.14.0
 google-api-core==1.34.1
+google-auth==2.14.1
 # cryptography is a direct dependency of google-auth
 cryptography==38.0.3
-google-auth==2.14.1
-proto-plus==1.22.0
-protobuf==3.20.2
+# TODO(https://github.com/googleapis/gapic-generator-python/issues/2453)
+# Add the minimum supported version of grpcio to constraints files
+proto-plus==1.22.3
 google-cloud-core==2.0.0
 google-cloud-appengine-logging==0.1.3
 google-cloud-audit-log==0.3.1
@@ -25,3 +26,4 @@ jinja2==2.10.1
 markupsafe==2.0.1
 itsdangerous==2.0.1
 werkzeug==1.0.1
+protobuf==3.20.2

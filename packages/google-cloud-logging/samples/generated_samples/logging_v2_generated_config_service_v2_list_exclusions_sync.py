@@ -35,10 +35,10 @@ from google.cloud import logging_v2
 
 
 def sample_list_exclusions():
-    # Create a client
+    # Create a client.
     client = logging_v2.services.config_service_v2.ConfigServiceV2Client()
 
-    # Initialize request argument(s)
+    # Initialize request argument(s).
     request = logging_v2.types.ListExclusionsRequest(
         parent="parent_value",
     )
@@ -49,5 +49,6 @@ def sample_list_exclusions():
     # Handle the response
     for response in page_result:
         print(response)
+
 
 # [END logging_v2_generated_ConfigServiceV2_ListExclusions_sync]

@@ -35,7 +35,7 @@ from google.cloud import logging_v2
 
 
 def sample_update_sink():
-    # Create a client
+    # Create a client.
     client = logging_v2.services.config_service_v2.ConfigServiceV2Client()
 
     # Initialize request argument(s)
@@ -43,6 +43,7 @@ def sample_update_sink():
     sink.name = "name_value"
     sink.destination = "destination_value"
 
+    # Initialize request argument(s).
     request = logging_v2.types.UpdateSinkRequest(
         sink_name="sink_name_value",
         sink=sink,
@@ -53,5 +54,6 @@ def sample_update_sink():
 
     # Handle the response
     print(response)
+
 
 # [END logging_v2_generated_ConfigServiceV2_UpdateSink_sync]

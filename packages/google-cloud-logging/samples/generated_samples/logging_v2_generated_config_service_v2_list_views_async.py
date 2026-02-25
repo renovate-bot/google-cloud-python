@@ -35,10 +35,10 @@ from google.cloud import logging_v2
 
 
 async def sample_list_views():
-    # Create a client
+    # Create a client.
     client = logging_v2.services.config_service_v2.ConfigServiceV2AsyncClient()
 
-    # Initialize request argument(s)
+    # Initialize request argument(s).
     request = logging_v2.types.ListViewsRequest(
         parent="parent_value",
     )
@@ -49,5 +49,6 @@ async def sample_list_views():
     # Handle the response
     async for response in page_result:
         print(response)
+
 
 # [END logging_v2_generated_ConfigServiceV2_ListViews_async]

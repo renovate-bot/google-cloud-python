@@ -1943,7 +1943,7 @@ libraries:
     tag_format: '{id}-v{version}'
   - id: google-cloud-logging
     version: 3.13.0
-    last_generated_commit: 5400ccce473c439885bd6bf2924fd242271bfcab
+    last_generated_commit: 69bf99a9d0910fa86c3c5867ea357aa004dfcc55
     apis:
       - path: google/logging/v2
         service_config: logging_v2.yaml

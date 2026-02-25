@@ -35,10 +35,10 @@ from google.cloud import logging_v2
 
 
 def sample_delete_log():
-    # Create a client
+    # Create a client.
     client = logging_v2.services.logging_service_v2.LoggingServiceV2Client()
 
-    # Initialize request argument(s)
+    # Initialize request argument(s).
     request = logging_v2.types.DeleteLogRequest(
         log_name="log_name_value",
     )

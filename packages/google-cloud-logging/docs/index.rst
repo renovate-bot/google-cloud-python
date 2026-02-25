@@ -32,15 +32,16 @@ See the guide below for instructions on migrating between major releases of this
 
     UPGRADING
 
+
 Changelog
-~~~~~~~~~
+---------
 
 For a list of all ``google-cloud-logging`` releases:
 
 .. toctree::
-   :maxdepth: 2
+    :maxdepth: 2
 
-   CHANGELOG
+    CHANGELOG
 
 .. toctree::
   :hidden:

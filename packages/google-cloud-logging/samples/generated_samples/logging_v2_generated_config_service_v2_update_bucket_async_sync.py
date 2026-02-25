@@ -35,10 +35,10 @@ from google.cloud import logging_v2
 
 
 def sample_update_bucket_async():
-    # Create a client
+    # Create a client.
     client = logging_v2.services.config_service_v2.ConfigServiceV2Client()
 
-    # Initialize request argument(s)
+    # Initialize request argument(s).
     request = logging_v2.types.UpdateBucketRequest(
         name="name_value",
     )
@@ -52,5 +52,6 @@ def sample_update_bucket_async():
 
     # Handle the response
     print(response)
+
 
 # [END logging_v2_generated_ConfigServiceV2_UpdateBucketAsync_sync]
