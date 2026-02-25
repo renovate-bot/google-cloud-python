@@ -1964,6 +1964,7 @@ libraries:
       - ^packages/google-cloud-logging/setup.py
       - ^packages/google-cloud-logging/docs/conf.py
       - ^packages/google-cloud-logging/docs/index.rst
+      - ^packages/google-cloud-logging/docs/multiprocessing.rst
       - ^packages/google-cloud-logging/docs/summary_overview.md
       - ^packages/google-cloud-logging/docs/README.rst
       - ^packages/google-cloud-logging/docs/_static/custom.css
