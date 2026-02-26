@@ -76,7 +76,13 @@ SYSTEM_TEST_STANDARD_DEPENDENCIES = [
     "pytest",
     "google-cloud-testutils",
 ]
-SYSTEM_TEST_EXTERNAL_DEPENDENCIES: List[str] = []
+SYSTEM_TEST_EXTERNAL_DEPENDENCIES: List[str] = [
+    "google-cloud-bigquery",
+    "google-cloud-pubsub",
+    "google-cloud-storage",
+    "google-cloud-testutils",
+    "opentelemetry-sdk",
+]
 SYSTEM_TEST_LOCAL_DEPENDENCIES: List[str] = []
 SYSTEM_TEST_DEPENDENCIES: List[str] = []
 SYSTEM_TEST_EXTRAS: List[str] = []
