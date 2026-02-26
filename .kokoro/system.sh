@@ -48,6 +48,7 @@ packages_with_system_tests=(
   "google-cloud-bigquery-storage"
   "google-cloud-dns"
   "google-cloud-error-reporting"
+  "google-cloud-logging"
   "google-cloud-testutils"
 )
 

@@ -284,6 +284,20 @@ replacements:
       UNIT_TEST_EXTRAS: List[str] = ["pandas", "storage"]
     count: 1
   - paths: [
+      packages/google-cloud-logging/noxfile.py,
+    ]
+    before: |
+      SYSTEM_TEST_EXTERNAL_DEPENDENCIES: List\[str\] = \[\]
+    after: |
+      SYSTEM_TEST_EXTERNAL_DEPENDENCIES: List[str] = [
+          "google-cloud-bigquery",
+          "google-cloud-pubsub",
+          "google-cloud-storage",
+          "google-cloud-testutils",
+          "opentelemetry-sdk",
+      ]
+    count: 1
+  - paths: [
       packages/google-cloud-automl/noxfile.py,
     ]
     before: |
